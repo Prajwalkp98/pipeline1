@@ -2,7 +2,7 @@ pipeline {
     agent none 
     stages{
         stage('BUILD') {
-        agent { lable 'master' }
+        agent { label 'master' }
             steps{
                  sh '''
                     sleep 5
@@ -12,7 +12,7 @@ pipeline {
         }
 
         stage('TEST1') {
-        agent { lable 'slave1' }
+        agent { label 'slave1' }
             steps{
                 sh '''
                     sleep 6
@@ -22,7 +22,7 @@ pipeline {
         }
 
         stage('DEPLOY1') {
-        agent { lable 'slave2' }
+        agent { label 'slave2' }
             steps{
                 sh '''
                     sleep 5
@@ -30,21 +30,6 @@ pipeline {
                 '''
             }
         }
-        stage('TEST2') {
-            steps{
-                sh '''
-                    sleep 5
-                    echo "This is a TEST2 stage"
-                '''
-            }
-        }
-        stage('DEPLOY2') {
-            steps{
-                sh '''
-                    sleep 5
-                    echo "This is a DEPLOY2 stage"
-                '''
-            }
-        }
+
     }
 }
